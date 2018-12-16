@@ -10,29 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_180752) do
-
-  create_table "possible_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.bigint "reservation_id"
-    t.datetime "possible_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["reservation_id"], name: "index_possible_dates_on_reservation_id"
-  end
-
-  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.bigint "reservation_id"
-    t.string "name"
-    t.string "mailaddr"
-    t.string "tel"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["reservation_id"], name: "index_subscribers_on_reservation_id"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end

@@ -5,7 +5,7 @@ class InitialTables < ActiveRecord::Migration[5.2]
     end
 
     create_table :subscribers do |t|
-      t.belongs_to :reservation, index: true
+      t.belongs_to :possible_date, index: true
       t.string :name
       t.string :mailaddr
       t.string :tel
