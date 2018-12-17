@@ -1,0 +1,2 @@
+class PossibleDatesController < ApplicationController
+end
