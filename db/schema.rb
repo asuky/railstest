@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_12_17_074120) do
 
-  create_table "possible_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "possible_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "reservation_id"
     t.datetime "possible_date"
     t.datetime "created_at", null: false
@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 2018_12_17_074120) do
     t.index ["reservation_id"], name: "index_possible_dates_on_reservation_id"
   end
 
-  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.text "description", limit: 4294967295
   end
 
-  create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "possible_date_id"
     t.string "name"
     t.string "mailaddr"
