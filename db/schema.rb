@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_074120) do
+ActiveRecord::Schema.define(version: 2018_12_18_051623) do
 
   create_table "possible_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "reservation_id"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2018_12_17_074120) do
 
   create_table "subscribers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "possible_date_id"
-    t.string "name"
-    t.string "mailaddr"
-    t.string "tel"
+    t.string "name", null: false
+    t.string "mailaddr", null: false
+    t.string "tel", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["possible_date_id"], name: "index_subscribers_on_possible_date_id"
