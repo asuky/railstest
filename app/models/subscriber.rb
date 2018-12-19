@@ -7,9 +7,4 @@ class Subscriber < ApplicationRecord
     validates :name, length: { maximum: 64 }
     validates :mailaddr, presence: true
     validates :tel, presence: true
-
-    def create
-        
-
-    end
 end

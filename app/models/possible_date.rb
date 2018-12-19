@@ -3,7 +3,7 @@ class PossibleDate < ApplicationRecord
     has_one :subscriber
 
     def self.vacants(possible_date_id)
-        if PossibleDate.exists?(possible_date_id) then
+        if PossibleDate.exists?(id: possible_date_id) then
             if PossibleDate.joins(:subscriber).where("possible_dates.id=?", possible_date_id).exists? then
                 return false
             else
