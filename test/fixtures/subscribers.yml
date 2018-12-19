@@ -4,3 +4,11 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
+
+subscribers_data1:
+  possible_date: possible_date_data1
+  name: "越智 悠"
+  mailaddr: "nux4lg7_w0w19e@ziletmzq.net"
+  tel: "012-3456-7890"
+  created_at: 2018-10-21 07:08:09
+  updated_at: 2018-10-21 23:45:06

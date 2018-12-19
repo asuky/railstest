@@ -5,29 +5,25 @@
 # below each fixture, per the syntax in the comments below
 #
 
-data1:
-  id: 1
+possible_date_data1:
   reservation: reservation_data1
   possible_date: 2018-10-25 10:00
   created_at: 2018-10-19 12:34:56
   updated_at: 2018-10-19 12:34:56
 
-data2:
-  id: 2
+possible_date_data2:
   reservation: reservation_data1
   possible_date: 2018-10-25 11:00
   created_at: 2018-10-19 12:34:56
   updated_at: 2018-10-19 12:34:56
 
-data3:
-  id: 3
+possible_date_data3:
   reservation: reservation_data1
   possible_date: 2018-10-25 13:00
   created_at: 2018-10-19 12:34:56
   updated_at: 2018-10-19 12:34:56
 
-data4:
-  id: 4
+possible_date_data4:
   reservation: reservation_data1
   possible_date: 2018-10-25 14:00
   created_at: 2018-10-19 12:34:56

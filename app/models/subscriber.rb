@@ -8,4 +8,8 @@ class Subscriber < ApplicationRecord
     validates :mailaddr, presence: true
     validates :tel, presence: true
 
+    def create
+        
+
+    end
 end
