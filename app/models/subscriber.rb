@@ -1,10 +1,11 @@
 class Subscriber < ApplicationRecord
     belongs_to :possible_date
     validates :name, presence: true
-    # varcher(255) と utf8mb4 なので、 255/4 の 64文字が限界
+
+    # 一旦 max を 64 文字とする
+    # 最長は mysql の index の都合上191文字
     validates :name, length: { maximum: 64 }
-
     validates :mailaddr, presence: true
-
     validates :tel, presence: true
+
 end
