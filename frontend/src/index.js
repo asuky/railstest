@@ -1,12 +1,64 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider, connect } from 'react-redux';
+import { createLogger } from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
+import rootReducer from './reducers/reducers';
+import allSagas from './sagas/allsagas';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { getReservations,
+        prepareReservation,
+        postReservation,
+        updateField } from './actions/actions';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import MainUI from './components/MainUI';
+
+import './css/main.css';
+
+const sagaMiddlewares = createSagaMiddleware();
+const logger = createLogger();
+const store = createStore(
+    rootReducer,
+    applyMiddleware(sagaMiddlewares, logger)
+);
+
+sagaMiddlewares.run(allSagas);
+
+function mapStateToProps(state) {
+    return {
+        list: state.PossibleDates.list,
+        dateid: state.PossibleDates.dateid
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateField: (property, value) => { 
+            dispatch(updateField(property, value));
+        },
+
+        onPrepareReservation: (e, resid) => {
+            dispatch(prepareReservation(resid))
+        },
+
+        onPostReservation: () => {
+            dispatch(postReservation())
+        }
+    }
+}
+
+const AppContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(MainUI);
+
+ReactDOM.render(
+    <Provider store={store}>
+        <AppContainer />
+    </Provider>,
+    document.getElementById('root')
+);
+
+
+store.dispatch(getReservations());
